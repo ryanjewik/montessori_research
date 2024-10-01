@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 
 # %%
-api_key = "993a18cf42cc984ff4528c90423e91aac2ffdba1a683630b6c9d90a85686f42e"
+api_key = ""
 
 # %%
 import re
