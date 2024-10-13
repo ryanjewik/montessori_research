@@ -112,7 +112,7 @@ while len(applist) < 5 and parseInt < len(app_name_results['organic_results'][0]
     except:
         errorString = "missing info on " + name
         print(errorString)
-        continue;
+        continue
     else:
         if review_count > review_qual and download_count > download_qual and rating_count > rating_qual:
             applist.append(product_id)
@@ -157,7 +157,7 @@ for x in range(0, len(applist)):
             all_reviews['serpapi_pagination']
         except:
             print("no more pages")
-            break;
+            break
         else:
             params = {
               "engine": "google_play_product",
@@ -175,7 +175,7 @@ for x in range(0, len(applist)):
             try:
                 all_reviews['serpapi_pagination']
             except:
-                break;
+                break
             else:
                 next_page_token = all_reviews['serpapi_pagination']['next_page_token']
             finally:
