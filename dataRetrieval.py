@@ -86,8 +86,8 @@ app_df = pd.DataFrame(app_name_results['organic_results'][0]['items'])
 
 # %%
 download_qual = 1000
-rating_qual = 2.5
-review_qual = 1000
+rating_qual = 3.0
+review_qual = 3000
 
 
 while len(applist) < 5 and parseInt < len(app_name_results['organic_results'][0]['items']):
