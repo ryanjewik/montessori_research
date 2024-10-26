@@ -1,8 +1,7 @@
 # %%
 import pandas as pd
-import numpy as np
 #from dataRetrieval import namelist
-
+from appscraper import fileNameList, namelist
 # %%
 '''
 for x in namelist:
@@ -12,24 +11,14 @@ for x in namelist:
     newfile = "rand200-" + filename
     random200.to_csv(newfile, index = False)
 '''
-filename = "Montessori Preschool, kids 3-7.csv"
-df = pd.read_csv(filename)
-random200 = df.sample(n=200, random_state=101)
-newfile = "rand200-" + filename
-random200.to_csv(newfile, index = False)
 
-filename = "Khan Academy Kids.csv"
-df = pd.read_csv(filename)
-random200 = df.sample(n=200, random_state=101)
-newfile = "rand200-" + filename
-random200.to_csv(newfile, index = False)
+for idx in range(0, len(fileNameList)):
+    filename = fileNameList[idx]
+    df = pd.read_csv(filename + '.csv')
+    random200 = df.sample(n=100, random_state=101, replace=True)
+    newfile =   "rand200/googleplayscaper-" + namelist[idx]
+    random200.to_csv(newfile, index = False)
 
-
-filename = "Preschool Games For Kids.csv"
-df = pd.read_csv(filename)
-random200 = df.sample(n=200, random_state=101)
-newfile = "rand200-" + filename
-random200.to_csv(newfile, index = False)
 
 
 
