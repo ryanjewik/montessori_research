@@ -40,7 +40,7 @@ from google_play_scraper import search
 
 #app search
 result = search(
-    "Montessori Apps",
+    "Montessori",
     lang="en",  # defaults to 'en'
     country="us",  # defaults to 'us'
     n_hits=30  # defaults to 30 (= Google's maximum)
@@ -132,12 +132,12 @@ for idx in range(0, len(applist)):
         #can't get isEdited
         review_df = pd.DataFrame({'developerResponse': [developerResponse],  'date': [date], 'review': [reviewText], 
                                    'score': [score], 'userName': [userName],})
-        fileName = "data/googleplayscraper-" + clean_filename(namelist[idx])
+        fileName = "final/googleplayscraper-" + clean_filename(namelist[idx])
         app_df = pd.concat([app_df, review_df], ignore_index = True)
     fileNameList.append(fileName)
     app_df.to_csv(fileName + ".csv", index = False)
-    rand200 = app_df.sample(n=100, random_state=101, replace = True)
-    rand200.to_csv("rand200/googleplayscraper-" + clean_filename(namelist[idx]), index = False)
+    #rand200 = app_df.sample(n=100, random_state=101, replace = True)
+    #rand200.to_csv("rand200/googleplayscraper-" + clean_filename(namelist[idx]), index = False)
 
 # %% [markdown]
 #  - date
