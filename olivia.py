@@ -36,7 +36,7 @@ for idx in range(0,7):
     # Filter reviews from the last 5 years
     filtered_df = reviews_df[reviews_df['date'] >= pd.Timestamp.now() - pd.DateOffset(years=5)]
     
-    filtered_df.to_csv(f"final/olivia-{namelist[idx]}.csv", index=False)
+    filtered_df.to_csv(f"final/o-{namelist[idx]}.csv", index=False)
 
 
 """
