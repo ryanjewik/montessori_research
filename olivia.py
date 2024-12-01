@@ -14,7 +14,13 @@ idlist.append("1378467217")
 namelist.append("abc-kids-tracing-phonics")
 idlist.append("1112482869")
 
-for idx in range(0,5):
+
+namelist.append("preschool-games-for-kids")
+idlist.append("996232516")
+namelist.append("kids-math-games")
+idlist.append("1565484251")
+
+for idx in range(0,7):
     # Initialize the scraper with the app name and country code
     # app = AppStore(country="us", app_name="pok-pok-montessori-preschool", app_id="1550204730")
     # app = AppStore(country="us", app_name="toddler-games-for-2-year-olds", app_id="571421198")
