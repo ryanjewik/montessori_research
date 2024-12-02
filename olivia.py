@@ -3,22 +3,20 @@ import pandas as pd
 import random
 namelist = []
 idlist = []
-namelist.append("pok-pok-montessori-preschool")
-idlist.append("1550204730")
 namelist.append("toddler-games-for-2-year-olds")
 idlist.append("571421198")
-namelist.append("montessori-preschool-kids-3-7")
-idlist.append("1138436619")
 namelist.append("khan-academy-kids")
 idlist.append("1378467217")
-namelist.append("abc-kids-tracing-phonics")
-idlist.append("1112482869")
-
-
-namelist.append("preschool-games-for-kids")
-idlist.append("996232516")
 namelist.append("kids-math-games")
 idlist.append("1565484251")
+namelist.append("montessori-preschool-kids-3-7")
+idlist.append("1138436619")
+namelist.append("pok-pok-montessori-preschool")
+idlist.append("1550204730")
+namelist.append("abc-kids-tracing-phonics")
+idlist.append("1112482869")
+namelist.append("preschool-games-for-kids")
+idlist.append("996232516")
 
 for idx in range(0,7):
     # Initialize the scraper with the app name and country code
@@ -31,6 +29,9 @@ for idx in range(0,7):
     app.review(how_many=1000)  # Scrape a large number of reviews to filter from
     # Convert the reviews to a DataFrame
     reviews_df = pd.DataFrame(app.reviews)
+    #add a name tag and a platform tag
+    reviews_df['Name'] = namelist[idx]
+    reviews_df['IOS'] = 1
     # Convert the date to a datetime format for filtering
     reviews_df['date'] = pd.to_datetime(reviews_df['date'])
     # Filter reviews from the last 5 years

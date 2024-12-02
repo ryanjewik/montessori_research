@@ -28,6 +28,9 @@ def clean_filename(filename):
     invalid_chars = r'[\/:*?"<>|]'
     # Replace invalid characters with an underscore
     cleaned_filename = re.sub(invalid_chars, '_', filename)
+    cleaned_filename = cleaned_filename.replace("_", "-")
+    cleaned_filename = cleaned_filename.replace(" ", "-")
+    cleaned_filename = cleaned_filename.lower()
     return cleaned_filename
 
 # %% [markdown]
@@ -132,7 +135,9 @@ for idx in range(0, len(applist)):
         #can't get isEdited
         review_df = pd.DataFrame({'developerResponse': [developerResponse],  'date': [date], 'review': [reviewText], 
                                    'score': [score], 'userName': [userName],})
-        fileName = "final/googleplayscraper-" + clean_filename(namelist[idx])
+        fileName = "final/g-" + clean_filename(namelist[idx])
+        review_df['IOS'] = 0
+        review_df['Name'] = clean_filename(namelist[idx])
         app_df = pd.concat([app_df, review_df], ignore_index = True)
     fileNameList.append(fileName)
     app_df.to_csv(fileName + ".csv", index = False)
